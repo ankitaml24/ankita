@@ -1,82 +1,155 @@
-<html>
-    <head>
-        <title>Scholarship Registration Form</title>
-    </head>
-    <h1>Scholarship Registration form</h1>
-    <body bgcolor="Lightgrey">
-        <form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-            <legend>
-                <h3>USer Personal Information:</h3> </legend>
-                <label for="name">Enter your full name:</label>
-                <input type="text" required placeholder="First Name"/>
-                <input type=""text required placeholder="Last name"/><br>
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-                <label for="email">Enter your email:</label>
-                <input type="email" required /><br>
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-                <label for="password">Enter your password:</label>
-                <input type="password" required /><br>
+    .form-group {
+      margin-bottom: 15px;
+    }
 
-                <label for="confirmPassword">Confirm your password:</label>
-                <input type="password" required /><br>
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
 
-                <label for="dob"> Enter your Date of Birth:</label>
-                <input type="date" required /><br>
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
 
-                <label>Select your gender:</label>
-                <div class="gender-group">
-                    <input type="radio" value="male" required />
-                    <label for="male">Male</label>
-                    <input type="radio"  value="female" />
-                    <label for="female">Female</label>
-                    <input type="radio" value="others" />
-                    <label for="others">Others</label>
-                </div>
+    textarea {
+      height: 120px;
+    }
 
-                <label for="address">Enter your Address:</label>
-                <input type="textarea" required></textarea><br>
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-                <label>Select your State:</label>
-                    <div class="state-group">
-                        <select>
-                            <option> ----------------------- Select State----------------</option>
-                            <option>Madhya Pradesh </option>
-                            <option>Maharastra </option>
-                            <option>Gujrat </option>
-                            <option>Tamil Nadu </option>
-                            <option>Bihar </option>
-                            </select>
-
-                            <legend><h3>Educational info:</h3></legend>
-                            <label>Select your Branch:</label>
-                            <div class="branch-group">
-                                <input type="checkbox" /> EMTECH
-                                <input type="checkbox" /> CSE
-                                <input type="checkbox" /> IT
-                                <input type="checkbox" /> ETC
-                                <input type="checkbox" /> Civil
-                                <input type="checkbox" /> Mech<br>
-
-                                <label for="ssc"> SSC % marks</label>
-                                <input type="% marks" required /><br>
-                                <label for="hsc">HSC % marks</label>
-                                <input type="% marks" required /><br>
-                                <label for="ssc">B.Tech % marks</label>
-                                <input type="% marks" required /><br>
-
-                                <legend><h3>Upload Documents:</h3></legend>
-                                <label for="photo">Upload photo:</label>
-                                <input file="file" required /><br>
-                                <label type="photo"> Income Certificate:</label>
-                                <label type="file" required /><br>
-                                <label for="photo"> Caste Certificate:</label>
-                                <input type="file" required/><br>
-                                <input type=""submit" value="Register" />
-            
-            </form>
-    </body>
-</form>
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
 <body>
-    
+
+  <div class="form-container">
+    <h2>Internship Application Form</h2>
+    <form id="internshipForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Preferred Department</label>
+        <select id="department" name="department" required>
+          <option value="marketing">Marketing</option>
+          <option value="engineering">Engineering</option>
+          <option value="design">Design</option>
+          <option value="finance">Finance</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" name="resume" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Why do you want to join this internship?</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var dob = document.getElementById('dob').value;
+      var department = document.getElementById('department').value;
+      var resume = document.getElementById('resume').value;
+      var message = document.getElementById('message').value;
+
+      // Check if any field is empty
+      if (name === "" || email === "" || phone === "" || dob === "" || department === "" || resume === "" || message === "") {
+        alert("Please fill all the fields.");
+        return false;
+      }
+
+      // Email validation
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      // Phone number validation (optional, can adjust pattern as needed)
+      var phonePattern = /^[0-9]{10}$/;
+      if (!phone.match(phonePattern)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false;
+      }
+
+      // If everything is valid
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+
+</body>
 </html>
